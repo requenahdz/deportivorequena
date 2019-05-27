@@ -1,0 +1,73 @@
+@mixin flex($direccion: column, $wrap: nowrap, $ai: center, $jc: center, $ac: center){
+  display: flex;
+  flex-direction: $direccion;
+  flex-wrap: $wrap;
+  align-items: $ai;
+  justify-content: $jc;
+  align-content: $ac;
+}
+@mixin container($width: 90%){
+  width: $width;
+  margin: 0 auto;
+  max-width: 2048px;
+}
+@mixin imagen($link: '', $bs: cover, $p: center, $r: no-repeat){
+  @if $link != '' {
+    background-image: url($link);
+  }
+  background-size: $bs;
+  background-position: $p;
+  background-repeat: $r;
+}
+@mixin parallax($p: center, $a: fixed, $r: no-repeat, $s: cover) {
+  background-position: $p;
+  background-attachment: $a;
+  background-repeat: $r;
+  background-size: $s;
+}
+@mixin ellipsis{
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+@mixin ellipsisParrafo($l:3){
+  -webkit-line-clamp: $l;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+}
+@mixin scroll($medida:3px, $thumb:rgba(60, 60, 60, 0.2), $track:transparent) {
+  &::-webkit-scrollbar {
+    width:  $medida;
+    height: $medida;
+  }
+  &::-webkit-scrollbar-thumb {
+    background: $thumb;
+  }
+  &::-webkit-scrollbar-track {
+    background: $track;
+  }
+}
+
+//Mixins Media Queries
+@mixin compu{
+  @media only screen and (max-width: 1024px) {
+    @content;
+  }
+}
+@mixin tablet{
+  @media only screen and (max-width: 768px) {
+    @content;
+  }
+}
+@mixin cel{
+  @media only screen and (max-width: 480px) {
+    @content;
+  }
+}
+@mixin responsivo($medida){
+  @media only screen and (max-width: $medida) {
+    @content;
+  }
+}
