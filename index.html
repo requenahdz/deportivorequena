@@ -28,15 +28,15 @@
     </div>
     <div class="segundaLinea">
       <div class="container">
+        <div class="bars">
+          <div class="bar"></div>
+        </div>
         <div class="enlaces">
           <a href="#" >  <i data-icono="home"></i></i>Inicio</a>
           <a href="#" > <i data-icono="book"></i></i></i>Noticias</a>
           <a href="#" > <i data-icono="camera"></i></i></i>Galeria</a>
           <a href="#" > <i data-icono="folder"></i></i>Resultados</a>
           <a href="#" > <i data-icono="mail"></i></i>Contacto</a>
-        </div>
-        <div class="bars">
-          <div class="bar"></div>
         </div>
       </div>
     </div>
@@ -56,7 +56,7 @@
   <script>
 
   $('.bars').click(function(){
-      $(this).toggleClass('activo');
+      $(this).parent().toggleClass('activo');
   });
 </script>
 </body>

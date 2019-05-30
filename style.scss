@@ -64,10 +64,11 @@
   }
   .segundaLinea{
     background-color: #282562;
+    position: relative;
     .container{
-      position: relative;
       @include container(85%);
       .enlaces{
+        transition: ease all 0.5s;
         @include flex(row,nowrap,center,flex-end);
         a{
           @include flex(row);
@@ -95,7 +96,7 @@
         height: 50px;
         width: 50px;
         position: absolute;
-        right: 0px;
+        right: 20px;
         cursor: pointer;
         display: none;
         .bar{
@@ -106,7 +107,7 @@
           margin: auto;
           top: 0px;
           left: 0px;
-          right: 0px;
+          right: 20px;
           bottom: 0px;
           transition: ease all .5s;
           &:before,&:after{
@@ -142,15 +143,27 @@
     }
     .segundaLinea{
       .container{
-        position: relative;
         min-height: 50px;
         .enlaces{
+          position: absolute;
+          @include flex(column,nowrap,center,center,center);
+          left: 0px;
           height: 0px;
+          right: 0px;
+          z-index: 1;
           overflow: hidden;
+          width: 100%;
+          background-color: #292664;
+          margin-top: 45px;
+          a{
+            width: 100%;
+          }
         }
         .bars{
           display: block;
-            &.activo{
+        }
+        &.activo{
+          .bars{
               .bar{
                 background-color: transparent;
 
@@ -163,10 +176,13 @@
                   transform: rotate(45deg);
                 }
               }
-            }
 
+          }
+          .enlaces{
+            height: 70vh;
+
+          }
         }
-
       }
     }
   }
