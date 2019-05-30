@@ -164,18 +164,18 @@
         }
         &.activo{
           .bars{
-              .bar{
-                background-color: transparent;
+            .bar{
+              background-color: transparent;
 
-                &:before{
-                  top: 0px;
-                  transform: rotate(-45deg);
-                }
-                &:after{
-                  bottom: 0px;
-                  transform: rotate(45deg);
-                }
+              &:before{
+                top: 0px;
+                transform: rotate(-45deg);
               }
+              &:after{
+                bottom: 0px;
+                transform: rotate(45deg);
+              }
+            }
 
           }
           .enlaces{
@@ -196,10 +196,75 @@
       height: 100%;
       width: 100%;
       @include imagen('',cover);
-      border-bottom: 5px solid #282562;
+
       &.activo{
         opacity: 1;
       }
+    }
+  }
+}
+.ultimoMarcador{
+  .titulo{
+    width: 100%;
+    padding: 15px 10px;
+    background-color: #333;
+    color: #fff;
+    text-transform: uppercase;
+    text-align: center;
+    font-weight: 600;
+    font-size: 30px;
+    border-bottom: 5px solid #3a3c96;
+    letter-spacing: 1.5px;
+  }
+  .marcador{
+    padding: 10px 0px;
+    background-color: #1f1f1f;
+    .superior{
+      @include flex(row,nowrap);
+      .resultado{
+        font-size: 50px;
+        font-weight: 600;
+        letter-spacing: 2px;
+        text-align: center;
+        color: #3a3c96;
+      }
+      .equipo{
+        color: #fff;
+        font-size: 20px;
+        font-weight: 600;
+        text-transform: uppercase;
+        padding: 10px;
+        letter-spacing: 1.5px;
+        text-align: center;
+      }
+    }
+    .inferior{
+      width: 100%;
+      @include  flex(row,nowrap);
+      background-color: #1f1f1f;
+      .fecha,.cancha{
+        @include  flex(row,nowrap);
+        text-transform: uppercase;
+        color: #929599;
+        font-size: 12px;
+        padding: 15px 10px;
+        i{
+          width: 15px;
+          height: 15px;
+          margin: 5px;
+          }
+
+        i[data-icono]:after{
+            background-color: #929599!important;
+        }
+      }
+    }
+  }
+
+
+  @include tablet{
+    .marcador .superior{
+      @include flex(column,wrap);
     }
   }
 }
