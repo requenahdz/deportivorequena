@@ -45,7 +45,9 @@
     <div class="imagenes">
       <div class="imagen activo" style="background-image:url('img/bg1.jpg')"></div>
       <div class="imagen" style="background-image:url('img/bg2.jpg')"></div>
+      <div class="imagen" style="background-image:url('img/bg3.jpg')"></div>
     </div>
+    <div class="titulo">ÚLTIMO  MARCADOR</div>
     <div class="controles">
       <div class="izquierda"></div>
       <div class="derecha"></div>
@@ -53,7 +55,6 @@
 
   </section>
   <section class="ds_ultimoMarcador">
-    <div class="titulo">ÚLTIMO  MARCADOR</div>
     <div class="marcador">
       <div class="superior">
         <div class="equipo">Deportivo Requena</div>
@@ -71,7 +72,8 @@
       <div class="slider">
         <div class="imagenes">
           <div class="imagen activo" style="background-image:url('img/bg1.jpg')"></div>
-          <div class="imagen" style="background-image:url('img/bg1.jpg')"></div>
+          <div class="imagen" style="background-image:url('img/bg2.jpg')"></div>
+          <div class="imagen" style="background-image:url('img/bg3.jpg')"></div>
         </div>
         <div class="steps"></div>
       </div>
@@ -85,6 +87,13 @@
   </section>
   <script src="jquery/jquery-3.3.1.min.js"></script>
   <script>
+
+  setInterval(function(){
+    var $papa=$('.ds_slider .imagenes').children('.imagen');
+    var $activo =$papa.parent().find('.imagen.activo');
+    $papa.removeClass('activo');
+    $papa.eq(($activo.index()+1)%$papa.length).addClass('activo');
+  }, 5000);
 
   $('.bars').click(function(){
     $(this).parent().toggleClass('activo');

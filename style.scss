@@ -188,6 +188,7 @@
   }
 }
 .ds_slider{
+  position: relative;
   .imagenes{
     position: relative;
     height: 70vh;
@@ -195,19 +196,20 @@
       opacity: 0;
       height: 100%;
       width: 100%;
+      position: absolute;
+      transition: ease all 1s;
       @include imagen('',cover);
-
       &.activo{
         opacity: 1;
       }
     }
   }
-}
-.ds_ultimoMarcador{
   .titulo{
+    position: absolute;
+    bottom: 0px;
     width: 100%;
     padding: 15px 10px;
-    background-color: #333;
+    background-color: rgba(51,51,51,0.8);
     color: #fff;
     text-transform: uppercase;
     text-align: center;
@@ -216,8 +218,11 @@
     border-bottom: 5px solid #3a3c96;
     letter-spacing: 1.5px;
   }
+}
+.ds_ultimoMarcador{
+
   .marcador{
-    padding: 10px 0px;
+    padding: 15px 0px;
     background-color: #1f1f1f;
     .superior{
       @include flex(row,nowrap);
@@ -247,7 +252,7 @@
         text-transform: uppercase;
         color: #929599;
         font-size: 12px;
-        padding: 15px 10px;
+        padding: 10px;
         i{
           width: 15px;
           height: 15px;
@@ -270,7 +275,7 @@
 }
 .ds_bienvenidos{
   padding: 25px 0px;
-      background-color: #eaeaea;
+  background-color: #eaeaea;
   .container{
     @include container;
     @include flex(row,nowrap,stretch);
@@ -317,6 +322,11 @@
       @include flex(column,);
       .slider,.textos{
         width: 100%;
+      }
+      .slider{
+        .imagenes{
+          min-height: 300px;
+        }
       }
 
     }
