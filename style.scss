@@ -1,8 +1,11 @@
 @import '_mixins.scss';
 @import '_reset.scss';
 
-
-
+$primario:#282562;
+$secundario:#1f1f1f;
+body{
+  background-color: #eaeaea;
+}
 .ds_menu{
   .primeraLinea{
     background-color: #1f1f1f;
@@ -257,10 +260,10 @@
           width: 15px;
           height: 15px;
           margin: 5px;
-          }
+        }
 
         i[data-icono]:after{
-            background-color: #929599!important;
+          background-color: #929599!important;
         }
       }
     }
@@ -331,4 +334,154 @@
 
     }
   };
+}
+.ds_jugadores{
+  // background-color: #1f1f1f;
+  width: 100%;
+
+  .container{
+    @include container;
+    .header{
+
+    }
+    .cards{
+      padding: 20px 0px;
+      @include  flex(row,nowrap,center,flex-start);
+      overflow-x: scroll;
+      .card{
+        width: 270px;
+        min-width: 270px;
+        max-width: 270px;
+        margin: 15px;
+        .figura{
+          overflow: hidden;
+          .imagen{
+            @include imagen('',cover);
+            width: 270px;
+            height: 200px;
+            cursor: pointer;
+            transition: ease all .5s;
+            &:hover{
+              transform: scale(1.2);
+            }
+          }
+        }
+        .info{
+          @include flex(row,nowrap);
+          .nombre,.numero{
+            color :#fff;
+            font-weight: 600;
+            flex-grow: 1;
+            padding: 10px;
+            text-transform: uppercase;
+
+          }
+          .nombre{
+            text-align: left;
+            background-color: $secundario;
+          }
+          .numero{
+            background-color: $primario;
+            text-align: center;
+            color:#fff;
+          }
+        }
+        }
+      }
+    }
+  }
+.ds_resultados{
+  width: 100%;
+ .container{
+  @include container()
+  padding: 20px 0px;
+    @include flex(column,nowrap,center,center,center);
+    .encuentro{
+      width: 100%;
+      background-color: $secundario;
+      margin: 10px 0px;
+      @include flex(row,nowrap);
+      .fecha{
+        @include flex(column,nowrap,center,center);
+        height:120px;
+        width:200px;
+        min-width: 200px;
+        background-color: $primario;
+        color: #fff;
+        .numero{
+          font-size: 30px;
+          font-weight: 600;
+        }
+        .mes{
+          font-size: 25px;
+          font-weight: 600;
+        }
+      }
+      .info{
+        flex-grow: 1;
+        @include flex(column,nowrap,center,center,center);
+        .equipos{
+          @include flex(row,nowrap,center,center,center);
+          padding: 10px 0px;
+          width: 100%;
+          .equipo{
+            color: #fff;
+            font-weight: 600;
+            font-size: 20px;
+            letter-spacing: 2px;
+            width: 50%;
+            &:first-child{
+              text-align: right;
+            }
+            &:last-child{
+              text-align: left;
+            }
+          }
+          .resultado{
+            letter-spacing: 2px;
+            min-width: 100px;
+            text-align: center;
+            color: #fff;
+            margin: 0px 20px;
+            font-size: 35px;
+            font-weight: 600;
+            background-color: $primario;
+          }
+        }
+        .cancha{
+          @include flex(row,nowrap);
+          text-transform: uppercase;
+          color: #929599;
+          font-size: 12px;
+          // padding: 10px;
+          i {
+             width: 15px;
+             height: 15px;
+             margin: 5px;
+          }
+        }
+      }
+    }
+  }
+@include tablet{
+    .container{
+      .encuentro{
+        .fecha{
+        height: 100%;
+        }
+        .info{
+            .equipos{
+              @include flex(column,nowrap,center,center,center);
+              .equipo{
+                padding: 15px 0px;
+                text-align: center!important;
+              }
+            }
+            .cancha{
+              padding: 10px 0px;
+            }
+        }
+      }
+    }
+  }
 }
