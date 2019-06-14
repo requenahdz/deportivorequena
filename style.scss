@@ -281,11 +281,14 @@ body{
   background-color: #eaeaea;
   .container{
     @include container;
-    @include flex(row,nowrap,stretch);
+    @include flex(row,wrap,stretch,center,center);
     .slider{
-      width: 50%;;
+      width: 50%;
+      flex-grow: 1;
+          min-width: 400px;
       .imagenes{
         min-height: 400px;
+        height: 100%;
         position: relative;
         .imagen {
           position: absolute;
@@ -303,6 +306,7 @@ body{
       width: 50%;
       background-color: #282562;
       padding: 25px;
+        flex-grow: 1;
       @include flex(column);
       .titulo,.descripcion{
         color:#fff;
@@ -386,21 +390,21 @@ body{
             color:#fff;
           }
         }
-        }
       }
     }
   }
+}
 .ds_resultados{
   width: 100%;
- .container{
-  @include container()
-  padding: 20px 0px;
+  .container{
+    @include container()
+    padding: 20px 0px;
     @include flex(column,nowrap,center,center,center);
     .encuentro{
       width: 100%;
       background-color: $secundario;
       margin: 10px 0px;
-      @include flex(row,nowrap);
+      @include flex(row,nowrap,center,center,center);
       .fecha{
         @include flex(column,nowrap,center,center);
         height:120px;
@@ -455,33 +459,53 @@ body{
           font-size: 12px;
           // padding: 10px;
           i {
-             width: 15px;
-             height: 15px;
-             margin: 5px;
+            width: 15px;
+            height: 15px;
+            margin: 5px;
           }
         }
       }
     }
   }
-@include tablet{
+  @include tablet{
     .container{
       .encuentro{
         .fecha{
-        height: 100%;
+          height: inherit;
         }
         .info{
-            .equipos{
-              @include flex(column,nowrap,center,center,center);
-              .equipo{
-                padding: 15px 0px;
-                text-align: center!important;
-              }
+          .equipos{
+            @include flex(column,nowrap,center,center,center);
+            .equipo{
+              padding: 15px 0px;
+              text-align: center!important;
             }
-            .cancha{
-              padding: 10px 0px;
-            }
+          }
+          .cancha{
+            padding: 10px 0px;
+          }
         }
       }
     }
   }
+}
+.ds_banner{
+  height: 200px;
+  width: 100%;
+  background-blend-mode: soft-light;
+  background-color: rgba(0,0,0,0.6);
+  @include imagen('',cover);
+      background-attachment: fixed;
+      .container{
+        height: 100%;
+        @include container;
+        @include flex(row,nowrap);
+        p{
+          color: #fff;
+          font-size: 30px;
+          font-weight: 600;
+          text-transform: uppercase;
+          letter-spacing: 5px;
+        }
+      }
 }
