@@ -494,7 +494,7 @@ body{
   width: 100%;
   background-blend-mode: soft-light;
   background-color: rgba(0,0,0,0.6);
-  @include imagen('',cover);
+  @include imagen('',cover,bottom);
       background-attachment: fixed;
       .container{
         height: 100%;
